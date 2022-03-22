@@ -1,0 +1,35 @@
+.contentContainer {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  height: calc(100vh - 5rem);
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  row-gap: 2rem;
+}
+
+.currency {
+  margin-top: 5rem;
+
+  > p {
+    font-weight: 700;
+    padding-bottom: 1rem;
+  }
+
+  > form {
+    padding-top: 1rem;
+
+    > div {
+      display: flex;
+      padding-bottom: 1rem;
+      flex-direction: column;
+
+      label{
+          font-weight: 700;
+          padding-bottom: 0.25rem;
+      }
+    }
+  }
+}
