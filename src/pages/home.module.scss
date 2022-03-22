@@ -26,14 +26,69 @@
       padding-bottom: 1rem;
       flex-direction: column;
 
-      label{
-          font-weight: 700;
-          padding-bottom: 0.25rem;
+      label {
+        font-weight: 700;
+        padding-bottom: 0.25rem;
       }
 
-      input{
-          width: 50%;
+      input {
+        width: 50%;
       }
+    }
+
+    div + div {
+      select {
+        width: 50%;
+        height: 2rem;
+        position: relative;
+        option {
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
+
+  button {
+    padding: 0.2rem 0.5rem;
+    background: var(--gray-100);
+    border: 1px solid var(--gray-500);
+    border-radius: 3px;
+    transition: filter 0.2s;
+
+    &:hover {
+      filter: brightness(0.8);
+    }
+  }
+}
+
+.converter {
+  > p {
+    font-weight: 700;
+    padding-bottom: 1rem;
+  }
+
+  > div {
+    padding-top: 1rem;
+
+    label{
+        font-size: 18px;
+        font-weight: 600;
+        padding-bottom: 0.25rem;
+    }
+
+    p{
+        display: flex;
+        align-items: center;
+        border: 1px solid var(--gray-300);
+        border-radius: 3px;
+        color: var(--gray-300);
+        
+        width: 50%;
+        height: 30px;
+
+        &:hover{
+            cursor: not-allowed;
+        }
     }
   }
 }

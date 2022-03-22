@@ -65,7 +65,7 @@ export default function Home() {
       </Head>
       <main className={styles.contentContainer}>
         <section className={styles.currency}>
-          <p>informe o valor e a moeda para conversão</p>
+          <p>Informe o valor e a moeda para conversão</p>
           <hr />
           <form onSubmit={handleSubmit(onSubmit)}>
             <div>
@@ -94,11 +94,9 @@ export default function Home() {
             <div>
               <label>Data da Consulta</label>
               <p>{`${data.getDate()}/${data.getMonth()}/${data.getFullYear()} ${data.getHours()}:${data.getMinutes()}`}</p>
-              <br />
 
               <label>{arrayConverter[0]}</label>
               <p>{watch("valor") * selectCoin(currency)[0]}</p>
-              <br />
 
               <label>{arrayConverter[1]}</label>
               <p>{watch("valor") * selectCoin(currency)[1]}</p>
