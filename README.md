@@ -52,7 +52,7 @@ Os usuários devem ser capazes de:
 ### Links
 
 - Solução URL: [https://github.com/michelwene/Currency-Converter](https://github.com/michelwene/Currency-Converter)
-- Site URL: [https://advice-generator-9qntgsq9w-michelwene.vercel.app/](https://advice-generator-9qntgsq9w-michelwene.vercel.app/)
+- Site URL: [https://currency-converter-ajyhuax3h-michelwene.vercel.app/](https://currency-converter-ajyhuax3h-michelwene.vercel.app/)
 
 ## :page_with_curl: Meu processo
 
@@ -66,6 +66,7 @@ Os usuários devem ser capazes de:
 - Design responsivo
 
 ### :bulb: O que eu aprendi
+
 ```typescript
 type Coins = "EURBRL" | "EURUSD" | "USDBRL" | "USDEUR" | "BRLEUR" | "BRLUSD";
 
@@ -76,54 +77,54 @@ type ICoins = {
 }; // tipagem do useState pertencente aos currencys e tipagem dos currecyns na função selectCoin.
 
 const {
-    register,
-    handleSubmit,
-    watch,
-    formState: { errors },
-  } = useForm({
-    resolver: yupResolver(valueSchema),
-  }); // utilizando do react-hook-form para utilizar no formulário de preenchimento do valor pegando o valor do campo e registrar as options do select que dentro dele estarão as moedas utilizadas para conversão.
+  register,
+  handleSubmit,
+  watch,
+  formState: { errors },
+} = useForm({
+  resolver: yupResolver(valueSchema),
+}); // utilizando do react-hook-form para utilizar no formulário de preenchimento do valor pegando o valor do campo e registrar as options do select que dentro dele estarão as moedas utilizadas para conversão.
 
-   {!!currency && (
-          <section className={styles.converter}>
-            <p>Resultado da Conversão - Cotação do dia</p>
-            <hr />
-            <div>
-              <label>Data da Consulta</label>
-              <p>{`${data.getDate()}/${data.getMonth()}/${data.getFullYear()} ${data.getHours()}:${data.getMinutes()}`}</p>
+{
+  !!currency && (
+    <section className={styles.converter}>
+      <p>Resultado da Conversão - Cotação do dia</p>
+      <hr />
+      <div>
+        <label>Data da Consulta</label>
+        <p>{`${data.getDate()}/${data.getMonth()}/${data.getFullYear()} ${data.getHours()}:${data.getMinutes()}`}</p>
 
-              <label>{arrayConverter[0]}</label>
-              <p>{watch("valor") * Number(selectCoin(currency)[0])}</p>
+        <label>{arrayConverter[0]}</label>
+        <p>{watch("valor") * Number(selectCoin(currency)[0])}</p>
 
-              <label>{arrayConverter[1]}</label>
-              <p>{watch("valor") * Number(selectCoin(currency)[1])}</p>
-            </div>
-          </section>
-        )} // esta é a seção onde eu calculo o valor do resultado da conversão, de acordo com a moeda selecionada no select.
+        <label>{arrayConverter[1]}</label>
+        <p>{watch("valor") * Number(selectCoin(currency)[1])}</p>
+      </div>
+    </section>
+  );
+} // esta é a seção onde eu calculo o valor do resultado da conversão, de acordo com a moeda selecionada no select.
 
-        function selectCoin(currency: ICoins) {
+function selectCoin(currency: ICoins) {
+  switch (watch("select")) {
+    case "euro":
+      const euroDolar = Number(currency.EURUSD.bid).toFixed(3);
+      const euroReal = Number(currency.EURBRL.bid).toFixed(3);
+      return [euroReal, euroDolar];
 
+    case "dolar":
+      const dolarEuro = Number(currency.USDEUR.bid).toFixed(3);
+      const dolarReal = Number(currency.USDBRL.bid).toFixed(3);
+      return [dolarEuro, dolarReal];
 
-    switch (watch("select")) {
-      case "euro":
-        const euroDolar = Number(currency.EURUSD.bid).toFixed(3);
-        const euroReal = Number(currency.EURBRL.bid).toFixed(3);
-        return [euroReal, euroDolar];
+    case "reais":
+      const realDolar = Number(currency.BRLUSD.bid).toFixed(3);
+      const realEuro = Number(currency.BRLEUR.bid).toFixed(3);
+      return [realEuro, realDolar];
 
-      case "dolar":
-        const dolarEuro = Number(currency.USDEUR.bid).toFixed(3);
-        const dolarReal = Number(currency.USDBRL.bid).toFixed(3);
-        return [dolarEuro, dolarReal];
-
-      case "reais":
-        const realDolar = Number(currency.BRLUSD.bid).toFixed(3);
-        const realEuro = Number(currency.BRLEUR.bid).toFixed(3);
-        return [realEuro, realDolar];
-
-      default:
-        return ["", ""];
-    }//esta função faz com que eu consiga converter as moedas de acordo com o que foi selecionado, fazendo com que eu não repita a moeda da conversão, por exemplo, converter euro em euro, ou real em real.
-  }
+    default:
+      return ["", ""];
+  } //esta função faz com que eu consiga converter as moedas de acordo com o que foi selecionado, fazendo com que eu não repita a moeda da conversão, por exemplo, converter euro em euro, ou real em real.
+}
 ```
 
 ### Continuação dos desenvolvimentos
@@ -131,7 +132,6 @@ const {
 Pretendo continuar fazendo projetos do FrontendMentor, para melhorar meus conhecimentos em NextJS e TypeScript.
 
 ### Recursos utilizados
-
 
 - [Developer Mozilla](https://developer.mozilla.org/en-US/docs/Web/JavaScript) - A documentação do Developer Mozilla é essencial para compreender as funções e conseguir aplicar as mesmas no projeto.
 
@@ -144,8 +144,8 @@ Pretendo continuar fazendo projetos do FrontendMentor, para melhorar meus conhec
 - [Yup](https://github.com/jquense/yup)
 - Utilização do yup para formatação do formulário.
 
-- [Awesome api](https://economia.awesomeapi.com.br/last/EUR-BRL,EUR-USD,USD-BRL,USD-EUR,BRL-EUR,BRL-USD) - Esta é uma API que eu consumi para pegar as frases de conselho. 
+- [Awesome api](https://economia.awesomeapi.com.br/last/EUR-BRL,EUR-USD,USD-BRL,USD-EUR,BRL-EUR,BRL-USD) - Esta é uma API que eu consumi para pegar as frases de conselho.
 
-## 	:medal_military: Autor
+## :medal_military: Autor
 
 - Linkedin - [@michelwene](https://www.linkedin.com/in/michelwene/)
